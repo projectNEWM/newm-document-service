@@ -1,5 +1,5 @@
 {
-  "eslint.validate": [ "javascript"],
+  "eslint.validate": [ "javascript", "jsx"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
   },

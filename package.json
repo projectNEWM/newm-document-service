@@ -5,15 +5,18 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --es-module-specifier-resolution=node server.js"
+    "start": "nodemon server.js"
   },
   "devDependencies": {
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
     "nodemon": "^2.0.19",
     "prettier": "2.7.1"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^2.3.0",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1"
