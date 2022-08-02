@@ -1,7 +1,14 @@
+import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 
-export const fileToBase64 = (path) => {
-  const encodedFile = fs.readFileSync(path, { encoding: "base64" });
+export const fileToBase64 = (filePath) => {
+  const encodedFile = fs.readFileSync(filePath, { encoding: "base64" });
 
   return encodedFile;
+};
+
+export const getCurrentDirectory = () => {
+  const __filename = fileURLToPath(import.meta.url);
+  return path.dirname(__filename);
 };
