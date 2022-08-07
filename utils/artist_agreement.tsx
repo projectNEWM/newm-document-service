@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import crypto from "crypto";
 import fs from "fs";
 import ReactPDF, { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
@@ -11,24 +11,24 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 12,
     paddingVertical: 72,
-    paddingHorizontal: 72,
+    paddingHorizontal: 72
   },
   section: {
-    marginBottom: 12,
+    marginBottom: 12
   },
   paragraph: {
-    marginBottom: 12,
+    marginBottom: 12
   },
   heading: {
     fontFamily: "Helvetica-Bold",
-    textAlign: "center",
+    textAlign: "center"
   },
   bold: {
-    fontFamily: "Helvetica-Bold",
-  },
+    fontFamily: "Helvetica-Bold"
+  }
 });
 
-const Strong = ({ children }) => <Text style={styles.bold}>{children}</Text>;
+const Strong: FunctionComponent = ({ children }) => <Text style={styles.bold}>{children}</Text>;
 
 /**
  * @returns a genarated artist PDF agreement as a React component.
