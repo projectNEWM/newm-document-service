@@ -19,7 +19,7 @@ export const authorize = async (req: Request, res: Response, next: NextFunction)
 
     next();
   } catch (error) {
-    if (error.name === "TokenExpiredError") {
+    if (error instanceof Error && error.name === "TokenExpiredError") {
       res.status(401).json({ message: "Expired token" });
       return;
     }

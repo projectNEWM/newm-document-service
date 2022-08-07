@@ -3,6 +3,7 @@ import crypto from "crypto";
 import fs from "fs";
 import ReactPDF, { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import { fileToBase64, getCurrentDirectory } from "./file.js";
+import { GenerateArtistAgreementProps, StrongProps } from "./types.js";
 import path from "path";
 
 const styles = StyleSheet.create({
@@ -28,12 +29,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const Strong: FunctionComponent = ({ children }) => <Text style={styles.bold}>{children}</Text>;
+const Strong: FunctionComponent<StrongProps> = ({ children }) => <Text style={styles.bold}>{children}</Text>;
 
 /**
  * @returns a genarated artist PDF agreement as a React component.
  */
-const generateArtistAgreement = ({ songName, companyName, artistName, stageName }) => {
+const generateArtistAgreement = ({ songName, companyName, artistName, stageName }: GenerateArtistAgreementProps) => {
   const ArtistAgreement = () => (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -64,7 +65,12 @@ const generateArtistAgreement = ({ songName, companyName, artistName, stageName 
 /**
  * @returns a base64 encoded version of a generated artist agreement PDF
  */
-export const generateEncodedArtistAgreement = async ({ songName, companyName, artistName, stageName }) => {
+export const generateEncodedArtistAgreement = async ({
+  songName,
+  companyName,
+  artistName,
+  stageName
+}: GenerateArtistAgreementProps) => {
   // generate PDF
   const pdf = generateArtistAgreement({ songName, companyName, artistName, stageName });
 

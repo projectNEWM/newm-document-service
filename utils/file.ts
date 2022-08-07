@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 
-export const fileToBase64 = (filePath) => {
+export const fileToBase64 = (filePath: string) => {
   const encodedFile = fs.readFileSync(filePath, { encoding: "base64" });
 
   return encodedFile;

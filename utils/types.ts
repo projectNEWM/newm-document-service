@@ -1,6 +1,18 @@
+import { ReactNode } from "react";
+
 export interface TokenPayload {
   readonly exp: number;
-  readonly accessTypes: string[];
   readonly name: string;
   readonly userId: number;
+}
+
+export interface StrongProps {
+  readonly children: ReactNode;
+}
+
+export interface GenerateArtistAgreementProps {
+  readonly songName: string;
+  readonly companyName: string;
+  readonly artistName: string;
+  readonly stageName: string;
 }
