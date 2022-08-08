@@ -6,7 +6,7 @@ export interface TokenPayload {
   readonly userId: number;
 }
 
-export interface StrongProps {
+export interface TextProps {
   readonly children: ReactNode;
 }
 
