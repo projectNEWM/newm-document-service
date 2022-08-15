@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import { authorize } from "./middlewares/index.js";
 import routes from "./routes/index.js";
 
-// create express app
 const app = express();
 
 // add request body parsing middleware
