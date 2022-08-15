@@ -4,28 +4,17 @@ import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
 describe("middleware", () => {
-  const json = jest.fn();
-  const status = jest.fn((code: number) => ({
-    json,
-  })) as any;
-  let mockRequest: Request;
-  let mockResponse: Partial<Response> = {
-    status,
-  };
-  let nextFunction: NextFunction = jest.fn();
-
-  const res = {
-    status,
-  } as any;
+  const mockJson = jest.fn();
+  const mockStatus = jest.fn((code: number) => ({ json: mockJson })) as any;
+  let mockResponse: Partial<Response> = { status: mockStatus };
+  let mockRequest: Request = { headers: {} } as Request;
+  let mockNextFunction: NextFunction = jest.fn();
 
   const env = process.env;
 
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
-
-    mockRequest = {} as Request;
-    mockResponse = res;
 
     process.env = { ...env, JWT_SECRET: "S3CR3T" };
   });
@@ -41,14 +30,10 @@ describe("middleware", () => {
           message: "Invalid token",
         };
 
-        mockRequest = {
-          headers: {},
-        } as any;
+        await authorize(mockRequest, mockResponse as Response, mockNextFunction);
 
-        await authorize(mockRequest, mockResponse as Response, nextFunction);
-
-        expect(status).toBeCalledWith(401);
-        expect(json).toBeCalledWith(expectedResponse);
+        expect(mockStatus).toBeCalledWith(401);
+        expect(mockJson).toBeCalledWith(expectedResponse);
       });
     });
 
@@ -64,10 +49,10 @@ describe("middleware", () => {
           },
         } as any;
 
-        await authorize(mockRequest, mockResponse as Response, nextFunction);
+        await authorize(mockRequest, mockResponse as Response, mockNextFunction);
 
-        expect(status).toBeCalledWith(401);
-        expect(json).toBeCalledWith(expectedResponse);
+        expect(mockStatus).toBeCalledWith(401);
+        expect(mockJson).toBeCalledWith(expectedResponse);
       });
     });
 
@@ -90,10 +75,10 @@ describe("middleware", () => {
           },
         } as any;
 
-        await authorize(mockRequest, mockResponse as Response, nextFunction);
+        await authorize(mockRequest, mockResponse as Response, mockNextFunction);
 
-        expect(status).toBeCalledWith(401);
-        expect(json).toBeCalledWith(expectedResponse);
+        expect(mockStatus).toBeCalledWith(401);
+        expect(mockJson).toBeCalledWith(expectedResponse);
       });
     });
 
@@ -112,10 +97,10 @@ describe("middleware", () => {
           },
         } as any;
 
-        await authorize(mockRequest, mockResponse as Response, nextFunction);
+        await authorize(mockRequest, mockResponse as Response, mockNextFunction);
 
-        expect(status).not.toBeCalled();
-        expect(json).not.toBeCalled();
+        expect(mockStatus).not.toBeCalled();
+        expect(mockJson).not.toBeCalled();
       });
     });
   });
