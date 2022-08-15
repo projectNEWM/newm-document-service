@@ -12,5 +12,9 @@
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true
   },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "lib": ["es2020"]
 }
