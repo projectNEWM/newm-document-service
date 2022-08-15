@@ -11,7 +11,10 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "extensionsToTreatAsEsm": [".ts", ".tsx"],
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx"
+    ],
     "globals": {
       "ts-jest": {
         "useESM": true

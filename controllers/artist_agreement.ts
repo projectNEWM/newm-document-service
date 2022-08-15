@@ -12,13 +12,13 @@ const ArtistAgreementController = {
       songName,
       companyName,
       artistName,
-      stageName
+      stageName,
     });
 
     res.json({
-      pdf: encodedPDF
+      pdf: encodedPDF,
     });
-  }
+  },
 };
 
 export default ArtistAgreementController;
