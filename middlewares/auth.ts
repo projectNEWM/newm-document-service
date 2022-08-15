@@ -24,6 +24,6 @@ export const authorize = async (req: Request, res: Response, next: NextFunction)
       return;
     }
 
-    res.status(500).json({ message: "Failed to authenticate user" });
+    res.status(401).json({ message: "Failed to authenticate user" });
   }
 };
