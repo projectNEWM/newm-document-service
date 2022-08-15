@@ -12,27 +12,27 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 12,
     paddingVertical: 72,
-    paddingHorizontal: 72
+    paddingHorizontal: 72,
   },
   section: {
-    marginBottom: 12
+    marginBottom: 12,
   },
   paragraph: {
-    marginBottom: 12
+    marginBottom: 12,
   },
   indented: {
-    paddingLeft: 24
+    paddingLeft: 24,
   },
   heading: {
     fontFamily: "Helvetica-Bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   bold: {
-    fontFamily: "Helvetica-Bold"
+    fontFamily: "Helvetica-Bold",
   },
   underline: {
-    textDecoration: "underline"
-  }
+    textDecoration: "underline",
+  },
 });
 
 const Strong: FunctionComponent<TextProps> = ({ children }) => <Text style={styles.bold}>{children}</Text>;
@@ -566,7 +566,7 @@ export const generateEncodedArtistAgreement = async ({
   songName,
   companyName,
   artistName,
-  stageName
+  stageName,
 }: GenerateArtistAgreementProps) => {
   // generate PDF
   const pdf = generateArtistAgreement({ songName, companyName, artistName, stageName });
