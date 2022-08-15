@@ -16,6 +16,6 @@ app.use(authorize);
 const port = process.env.PORT;
 app.set("port", port);
 
-app.use("/", routes);
+app.use("v1/", routes);
 
 app.listen(port, () => console.log(`server running on port ${port}`));
