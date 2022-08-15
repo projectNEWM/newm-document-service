@@ -11,7 +11,7 @@ npm start
 
 ## Documentation
 
-[REST API Wiki](https://github.com/projectNEWM/newm-server/wiki)
+[REST API Wiki](https://github.com/projectNEWM/newm-document-service/wiki)
 
 ## ⚖️ License
 

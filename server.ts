@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
 import { authorize } from "./middlewares/index.js";
-import routes from "./routes.js";
+import routes from "./routes/index.js";
 
 // create express app
 const app = express();

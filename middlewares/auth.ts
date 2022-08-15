@@ -19,11 +19,9 @@ export const authorize = async (req: Request, res: Response, next: NextFunction)
 
     next();
   } catch (error) {
-    if (error instanceof Error && error.name === "TokenExpiredError") {
-      res.status(401).json({ message: "Expired token" });
-      return;
-    }
+    const message =
+      error instanceof Error && error.name === "TokenExpiredError" ? "Expired token" : "Failed to authenticate user";
 
-    res.status(401).json({ message: "Failed to authenticate user" });
+    res.status(401).json({ message });
   }
 };
