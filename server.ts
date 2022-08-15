@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 // add JWT authentication middleware
 app.use(authorize);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4200;
 app.set("port", port);
 
 app.use("/v1/", routes);
