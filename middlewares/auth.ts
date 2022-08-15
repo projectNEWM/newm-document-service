@@ -19,7 +19,6 @@ export const authorize = async (req: Request, res: Response, next: NextFunction)
 
     next();
   } catch (error) {
-    console.log("error: ", error);
     const defaultErrorMessage = "Failed to authenticate user";
 
     if (error instanceof Error && errorMessageMap[error.name]) {

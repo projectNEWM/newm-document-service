@@ -8,7 +8,6 @@ export const validateToken = (token: string): Promise<jwt.Jwt> => {
 
   return new Promise((resolve, reject) => {
     jwt.verify(token, secretKey, verifyOptions, (error, decoded) => {
-      console.log("error, decoded: ", error, decoded);
       if (error || !decoded) return reject(error);
 
       resolve(decoded);
